@@ -1,0 +1,5 @@
+首先运行GENERATE_CDB脚本生成cdb文件
+
+再运行NONLINEAR_SOLVE脚本运行指定的cdb文件
+
+运行完成后的RESULT全局变量保存结果

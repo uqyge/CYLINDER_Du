@@ -1,0 +1,754 @@
+
+ ANSYS Mechanical                                  
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *                  ANSYS 15.0 LEGAL NOTICES                   *
+ ***************************************************************
+ *                                                             *
+ * Copyright 2013 SAS IP, Inc.  All rights reserved.           *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of ANSYS, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the ANSYS, Inc. online documentation or the ANSYS, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * ANSYS, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * ANSYS, Inc. is a UL registered                              *
+ * ISO 9001:2008 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the ANSYS, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the ANSYS, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ Point Releases and Patches installed:   
+     
+ ANSYS, Inc. Products 15.0   
+ ANSYS Mechanical Products 15.0  
+ ANSYS Autodyn 15.0  
+ ANSYS LS-DYNA 15.0  
+ ANSYS CFX (includes ANSYS CFD-Post) 15.0
+ ANSYS Fluent (includes ANSYS CFD-Post) 15.0 
+ ANSYS TurboGrid 15.0
+ ANSYS Polyflow (includes ANSYS CFD-Post) 15.0   
+ ANSYS Aqwa 15.0 
+ ANSYS ICEM CFD 15.0 
+ ANSYS Icepak (includes ANSYS CFD-Post) 15.0 
+ Catia, Version 6 15.0   
+ ANSYS, Inc. License Manager 15.0
+
+
+          *****  ANSYS COMMAND LINE ARGUMENTS  *****
+  INITIAL JOBNAME              = file                                                                                                                                                                                                                                                    
+  BATCH MODE REQUESTED (-b)    = LIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  START-UP FILE MODE           = READ  
+  STOP FILE MODE               = READ  
+  LANGUAGE                     = en-us               
+  INITIAL DIRECTORY = D:\projects\CYLINDER_Du
+
+ 20100520          VERSION=WINDOWS x64     RELEASE= 15.0     UP20131014
+ CURRENT JOBNAME=file  20:39:57  DEC 10, 2021 CP=      0.625
+
+     1  finish  
+     2  /clear  
+     3  /prep7  
+     4  et,1,shell63
+     5  KEYOPT,1,1,1
+     6  KEYOPT,1,2,0
+     7  KEYOPT,1,3,1
+     8  KEYOPT,1,5,0
+     9  KEYOPT,1,6,0
+    10  KEYOPT,1,7,0
+    11  KEYOPT,1,8,0
+    12  KEYOPT,1,9,0
+    13  KEYOPT,1,11,0   
+    14      
+    15  E = 4.900e+09   
+    16  mu = 3.400e-01  
+    17  t = 2.500e-05   
+    18  presload = 1.000e+04
+    19  L = 6.000e-01   
+    20  R = 3.000e-02   
+    21  pw = 1.000e-02  
+    22  elesize = 5.000e-03 
+    23  FAXIS = 2.000e+01   
+    24  MPTEMP,,,,,,,,  
+    25  MPTEMP,1,0  
+    26  MPDATA,EX,1,,E  
+    27  MPDATA,NUXY,1,,mu   
+    28  MPDATA,PRXY,1,,mu   
+    29      
+    30  R,1,t,t,t,t, , ,
+    31  RMORE, , , ,
+    32  RMORE   
+    33  RMORE,, 
+    34      
+    35  K, ,R,0,0,  
+    36  K, ,R,L/2-pw/2,0,   
+    37  K, ,R,L/2+pw/2,0,   
+    38  K, ,R,L,0,  
+    39  LSTR,1,2
+    40  LSTR,2,3
+    41  LSTR,3,4
+    42  K,,0,0,0
+    43  K,,0,0.1,0  
+    44      
+    45  FLST,2,3,4,ORDE,2   
+    46  FITEM,2,1   
+    47  FITEM,2,-3  
+    48  FLST,2,3,4,ORDE,2   
+    49  FITEM,2,1   
+    50  FITEM,2,-3  
+    51  FLST,8,2,3  
+    52  FITEM,8,5   
+    53  FITEM,8,6   
+    54  AROTAT,P51X, , , , , ,P51X, ,360,4, 
+    55      
+    56  MSHAPE,1,2D 
+    57  MSHKEY,1
+    58  ESIZE,elesize,0,
+    59  FLST,5,20,5,ORDE,4  
+    60  FITEM,5,1   
+    61  FITEM,5,-12 
+    62  FITEM,5,21  
+    63  FITEM,5,-28 
+    64  CM,_Y,AREA  
+    65  ASEL, , , ,P51X 
+    66  CM,_Y1,AREA 
+    67  CHKMSH,'AREA'   
+    68  CMSEL,S,_Y  
+    69  AMESH,_Y1   
+    70  CMDELE,_Y   
+    71  CMDELE,_Y1  
+    72  CMDELE,_Y2  
+    73      
+    74  NUMMRG,ALL, , , ,LOW
+    75  NUMCMP,ALL  
+    76      
+    77  FINISH  
+    78  /SOL
+    79  ANTYPE,0
+    80  CNVTOL,F, ,1E-6,2, ,
+    81  ANTYPE,0
+    82  NLGEOM,1
+    83  NSUBST,10,0,0   
+    84  OUTRES,ERASE
+    85  OUTRES,ALL,ALL  
+    86  AUTOTS,0
+    87  LNSRCH,0
+    88  NEQIT,100000
+    89  PRED,0  
+    90  TIME,1  
+    91      
+    92  NSEL,S,LOC,Y,-1E-6,1E-6 
+    93  NSEL,R,LOC,Z,-R-1E-6,1E-6   
+    94  D,ALL,ALL   
+    95  ALLSEL,ALL  
+    96      
+    97  NSEL,S,LOC,Y,L-1E-6,L+1E-6  
+    98  NSEL,R,LOC,Z,-R-1E-6,1E-6   
+    99  D,ALL, , , , , ,UX,UZ, , , ,
+   100  ALLSEL,ALL  
+   101      
+   102  ASEL,S,LOC,Y,1E-6,L-1E-6
+   103  SFA,ALL,1,PRES,presload 
+   104  ALLSEL,ALL  
+   105      
+   106  NSEL,S,LOC,Y,-1E-6,1E-6 
+   107  *get,nn,node,,count 
+   108  ALLSEL,ALL  
+   109  fnn = FAXIS/nn  
+   110      
+   111  NSEL,S,LOC,Y,-1E-6,1E-6 
+   112  F,ALL,FY,-fnn   
+   113  ALLSEL,ALL  
+   114      
+   115  NSEL,S,LOC,Y,L-1E-6,L+1E-6  
+   116  F,ALL,FY,fnn
+   117  ALLSEL,ALL  
+   118      
+   119  FINISH  
+   120  /PREP7  
+   121  CDWRITE,DB,'CYLINDER_WANG_SS1','cdb',,'','' 
+   122      
+   123  FLST,5,2,5,ORDE,2   
+   124  FITEM,5,8   
+   125  FITEM,5,11  
+   126  ASEL,S, , ,P51X 
+   127  ESLA,S  
+   128      
+   129  CDWRITE,DB,'LATERAL1','cdb',,'',''  
+   130      
+
+ RUN SETUP PROCEDURE FROM FILE= D:\programs\ANSYS Inc\v150\ANSYS\apdl\start150.ans
+
+ /INPUT FILE= D:\programs\ANSYS Inc\v150\ANSYS\apdl\start150.ans  LINE=       0
+
+ CLEAR DATABASE AND RERUN START.ANS
+
+ RUN SETUP PROCEDURE FROM FILE= D:\programs\ANSYS Inc\v150\ANSYS\apdl\start150.ans
+
+ ANSYS Mechanical                                  
+
+ /INPUT FILE= D:\programs\ANSYS Inc\v150\ANSYS\apdl\start150.ans  LINE=       0
+1
+
+ ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0      *****
+ ANSYS Mechanical                                  
+ 20100520          VERSION=WINDOWS x64   20:39:57  DEC 10, 2021 CP=      0.688
+
+                                                                               
+
+
+          ***** ANSYS ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE      1 IS SHELL63      ELASTIC SHELL               
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ    ROTX  ROTY  ROTZ
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      1 IS SHELL63      ELASTIC SHELL               
+  KEYOPT( 1- 6)=        1      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      1 IS SHELL63      ELASTIC SHELL               
+  KEYOPT( 1- 6)=        1      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      1 IS SHELL63      ELASTIC SHELL               
+  KEYOPT( 1- 6)=        1      0      1        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      1 IS SHELL63      ELASTIC SHELL               
+  KEYOPT( 1- 6)=        1      0      1        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      1 IS SHELL63      ELASTIC SHELL               
+  KEYOPT( 1- 6)=        1      0      1        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      1 IS SHELL63      ELASTIC SHELL               
+  KEYOPT( 1- 6)=        1      0      1        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      1 IS SHELL63      ELASTIC SHELL               
+  KEYOPT( 1- 6)=        1      0      1        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      1 IS SHELL63      ELASTIC SHELL               
+  KEYOPT( 1- 6)=        1      0      1        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      1 IS SHELL63      ELASTIC SHELL               
+  KEYOPT( 1- 6)=        1      0      1        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ PARAMETER E =     4900000000.    
+
+ PARAMETER MU =    0.3400000000    
+
+ PARAMETER T =    0.2500000000E-04
+
+ PARAMETER PRESLOAD =     10000.00000    
+
+ PARAMETER L =    0.6000000000    
+
+ PARAMETER R =    0.3000000000E-01
+
+ PARAMETER PW =    0.1000000000E-01
+
+ PARAMETER ELESIZE =    0.5000000000E-02
+
+ PARAMETER FAXIS =     20.00000000    
+
+ TEMPERATURE TABLE ERASED.
+
+ *** PROPERTY TEMPERATURE TABLE    NUM. TEMPS=  1 ***
+ SLOC=   1     0.000000    
+
+ PROPERTY TABLE EX    MAT=      1  NUM. POINTS=  1
+ SLOC=   1    0.4900000E+10
+
+ PROPERTY TABLE NUXY  MAT=      1  NUM. POINTS=  1
+ SLOC=   1    0.3400000    
+
+ *** WARNING ***                         CP =       0.688   TIME= 20:39:57
+ Poisson's ratio NU set for material 1 deleted.                          
+
+ PROPERTY TABLE PRXY  MAT=      1  NUM. POINTS=  1
+ SLOC=   1    0.3400000    
+
+ REAL CONSTANT SET       1  ITEMS   1 TO   6
+   0.25000E-04  0.25000E-04  0.25000E-04  0.25000E-04   0.0000       0.0000    
+
+ REAL CONSTANT SET       1  ITEMS   7 TO  12
+    0.0000       0.0000       0.0000       0.0000       0.0000       0.0000    
+
+ REAL CONSTANT SET       1  ITEMS  13 TO  18
+    0.0000       0.0000       0.0000       0.0000       0.0000       0.0000    
+
+ REAL CONSTANT SET       1  ITEMS  19 TO  24
+    0.0000       0.0000       0.0000       0.0000       0.0000       0.0000    
+
+ KEYPOINT      0   X,Y,Z=  0.300000E-01   0.00000       0.00000      IN CSYS=  0
+
+     KEYPOINT NUMBER =      1
+
+ KEYPOINT      0   X,Y,Z=  0.300000E-01  0.295000       0.00000      IN CSYS=  0
+
+     KEYPOINT NUMBER =      2
+
+ KEYPOINT      0   X,Y,Z=  0.300000E-01  0.305000       0.00000      IN CSYS=  0
+
+     KEYPOINT NUMBER =      3
+
+ KEYPOINT      0   X,Y,Z=  0.300000E-01  0.600000       0.00000      IN CSYS=  0
+
+     KEYPOINT NUMBER =      4
+
+ LINE CONNECTS KEYPOINTS      1     2
+  LINE NO.=     1  KP1=      1  TAN1=    0.0000  -1.0000   0.0000
+                   KP2=      2  TAN2=    0.0000   1.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS      2     3
+  LINE NO.=     2  KP1=      2  TAN1=    0.0000  -1.0000   0.0000
+                   KP2=      3  TAN2=    0.0000   1.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS      3     4
+  LINE NO.=     3  KP1=      3  TAN1=    0.0000  -1.0000   0.0000
+                   KP2=      4  TAN2=    0.0000   1.0000   0.0000
+
+ KEYPOINT      0   X,Y,Z=   0.00000       0.00000       0.00000      IN CSYS=  0
+
+     KEYPOINT NUMBER =      5
+
+ KEYPOINT      0   X,Y,Z=   0.00000      0.100000       0.00000      IN CSYS=  0
+
+     KEYPOINT NUMBER =      6
+
+ ROTATE LINES      1,     2,     3,
+      ABOUT THE AXIS DEFINED BY KEYPOINTS      5     6
+     DEGREES OF ARC=   360.00   NUMBER OF SEGMENTS=   4
+ PRODUCE ALL TRIANGLE ELEMENTS IN 2D.
+
+ *** WARNING ***                         CP =       0.688   TIME= 20:39:57
+ Structural elements without mid nodes usually produce much more         
+ accurate results in quad or brick shape.                                
+ USE THE MAPPED MESHER.
+
+ DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =  0.500E-02
+
+ DEFINITION OF COMPONENT = _Y        ENTITY=AREA
+
+       12  AREAS (OF       12  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ DEFINITION OF COMPONENT = _Y1       ENTITY=AREA
+
+ SELECT      COMPONENT _Y                              
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  PICKED   AREAS    
+    ** AREA     1 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
+    ** AREA     2 MESHED WITH       0 QUADRILATERALS,       40 TRIANGLES **
+    ** AREA     3 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
+    ** AREA     4 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
+    ** AREA     5 MESHED WITH       0 QUADRILATERALS,       40 TRIANGLES **
+    ** AREA     6 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
+    ** AREA     7 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
+    ** AREA     8 MESHED WITH       0 QUADRILATERALS,       40 TRIANGLES **
+    ** AREA     9 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
+    ** AREA    10 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
+    ** AREA    11 MESHED WITH       0 QUADRILATERALS,       40 TRIANGLES **
+    ** AREA    12 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
+
+ NUMBER OF AREAS MESHED     =         12
+ MAXIMUM NODE NUMBER        =       4840
+ MAXIMUM ELEMENT NUMBER     =       9600
+
+ DELETE COMPONENT _Y                              
+
+ DELETE COMPONENT _Y1                             
+
+ DELETE COMPONENT _Y2                             
+
+  MERGE COINCIDENT NODES WITHIN TOLERANCE OF  0.10000E-03
+
+ *** NOTE ***                            CP =       0.766   TIME= 20:39:57
+ Zero nodes were merged.                                                 
+
+ MERGE IDENTICAL MATERIALS WITHIN TOLERANCE OF  0.10000E-06
+
+ MERGE IDENTICAL ELEMENT TYPES
+
+ MERGE IDENTICAL REAL CONSTANT SETS WITHIN TOLERANCE OF  0.10000E-06
+
+ MERGE IDENTICAL ELEMENTS
+
+ ZERO ELEMENTS WERE MERGED
+
+ MERGE IDENTICAL COUPLED DOF SETS
+
+ MERGE IDENTICAL CONSTRAINT EQUATIONS WITHIN TOLERANCE OF 0.10000E-06
+
+ MERGE COINCIDENT KEYPOINTS WITHIN TOLERANCE OF  0.10000E-03
+
+ NO KEYPOINTS WERE MERGED
+
+ COMPRESS NODE NUMBERS
+      MAXIMUM NODE NUMBER COMPRESSED FROM      4840 TO      4840
+
+ COMPRESS ELEMENT NUMBERS
+      MAXIMUM ELEMENT NUMBER COMPRESSED FROM    9600 TO    9600
+
+ COMPRESS KEYPOINT NUMBERS
+      MAXIMUM KEYPOINT NUMBER COMPRESSED FROM      18 TO      18
+
+ COMPRESS LINE NUMBERS
+      MAXIMUM LINE NUMBER COMPRESSED FROM     28 TO     28
+
+ COMPRESS AREA NUMBERS
+      MAXIMUM AREA NUMBER COMPRESSED FROM     12 TO     12
+
+ COMPRESS VOLUME NUMBERS
+
+ COMPRESS MATERIAL NUMBERS
+      MAXIMUM MATERIAL NUMBER COMPRESSED FROM       1 TO       1
+
+ COMPRESS ELEMENT TYPE NUMBERS
+      MAXIMUM ELEMENT TYPE NUMBER COMPRESSED FROM       1 TO       1
+
+ COMPRESS REAL CONSTANT NUMBERS
+      MAXIMUM REAL CONSTANT SET NUMBER COMPRESSED  FROM       1 TO       1
+
+ COMPRESS SECTION NUMBERS
+
+ COMPRESS COUPLED DOF SET NUMBERS
+
+ COMPRESS CONSTRAINT EQUATION NUMBERS
+
+
+ ***** ROUTINE COMPLETED *****  CP =         0.797
+
+
+
+ *****  ANSYS SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ *** WARNING ***                         CP =       0.797   TIME= 20:39:57
+ The MINREF field of the CNVTOL command has been assigned a default      
+ value of 1.0 for convergence on F.  Check results carefully.            
+
+ CONVERGENCE ON F    BASED ON THE NORM OF THE N-R LOAD
+   WITH A TOLERANCE OF 0.1000E-05 AND A MINIMUM REFERENCE VALUE OF  1.000    
+   USING THE L2 NORM (CHECK THE SRSS VALUE)
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ LARGE DEFORMATION ANALYSIS
+
+ USE    10 SUBSTEP(S) THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ DO NOT USE AUTOMATIC TIME STEPPING THIS LOAD STEP
+
+ DO NOT USE A LINE SEARCH FOR  ALL DEGREES OF FREEDOM
+
+ USE A MAXIMUM OF100000 EQUILIBRIUM ITERATIONS EACH SUBSTEP
+
+ DO NOT USE PREDICTOR METHOD FOR  ALL DEGREES OF FREEDOM
+
+ TIME=  1.0000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN-0.10000E-05 AND  0.10000E-05
+   KABS=  0.  TOLERANCE= 0.200000E-13
+
+         40  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ RESELECT     FOR ITEM=LOC  COMPONENT=Z     BETWEEN-0.30001E-01 AND  0.10000E-05
+   KABS=  0.  TOLERANCE= 0.300020E-09
+
+         21  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES         1 TO     4840 BY        1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UY    UZ  
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.60000     AND  0.60000    
+   KABS=  0.  TOLERANCE= 0.200000E-13
+
+         40  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ RESELECT     FOR ITEM=LOC  COMPONENT=Z     BETWEEN-0.30001E-01 AND  0.10000E-05
+   KABS=  0.  TOLERANCE= 0.300020E-09
+
+         21  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES         1 TO     4840 BY        1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UZ  
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.10000E-05 AND  0.60000    
+   KABS=  0.  TOLERANCE= 0.599998E-08
+
+       12  AREAS (OF       12  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ SURFACE LOAD ON ALL SELECTED AREAS 
+     LOAD KEY =1         LOAD LABEL = PRES
+     VALUES =           10000.              0.0000    
+
+ *** WARNING ***                         CP =       0.797   TIME= 20:39:57
+ Both solid model and finite element model boundary conditions have been 
+ applied to this model.  As solid loads are transferred to the nodes or  
+ elements, they can overwrite directly applied loads.                    
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN-0.10000E-05 AND  0.10000E-05
+   KABS=  0.  TOLERANCE= 0.200000E-13
+
+         40  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NN        FROM  NODE  ITEM=COUN       VALUE=  40.0000000    
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER FNN =    0.5000000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN-0.10000E-05 AND  0.10000E-05
+   KABS=  0.  TOLERANCE= 0.200000E-13
+
+         40  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SPECIFIED NODAL LOAD FY   FOR SELECTED NODES         1 TO     4840 BY        1
+  REAL=-0.500000000       IMAG=  0.00000000    
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.60000     AND  0.60000    
+   KABS=  0.  TOLERANCE= 0.200000E-13
+
+         40  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SPECIFIED NODAL LOAD FY   FOR SELECTED NODES         1 TO     4840 BY        1
+  REAL= 0.500000000       IMAG=  0.00000000    
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =         0.797
+
+
+1
+
+ ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0      *****
+ ANSYS Mechanical                                  
+ 20100520          VERSION=WINDOWS x64   20:39:57  DEC 10, 2021 CP=      0.797
+
+                                                                               
+
+
+          ***** ANSYS ANALYSIS DEFINITION (PREP7) *****
+
+ *** ANSYS GLOBAL STATUS *** 
+
+ TITLE =                                                                       
+ ANALYSIS TYPE =  STATIC (STEADY-STATE)
+ NUMBER OF ELEMENT TYPES =      1
+      9600 ELEMENTS CURRENTLY SELECTED.  MAX ELEMENT NUMBER =        9600
+      4840 NODES CURRENTLY SELECTED.     MAX NODE NUMBER =           4840
+        18 KEYPOINTS CURRENTLY SELECTED. MAX KEYPOINT NUMBER =         18
+        28 LINES CURRENTLY SELECTED.     MAX LINE NUMBER =             28
+        12 AREAS CURRENTLY SELECTED.     MAX AREA NUMBER =             12
+
+ WRITE ANSYS DATABASE AS AN ANSYS INPUT FILE: CYLINDER_WANG_SS1.cdb                                                                                                                                                                                                                                               
+
+ TRANSFER SOLID MODEL BOUNDARY CONDITIONS TO FINITE ELEMENT MODEL
+      SURFACE LOADS  TRANSFERRED FROM AREAS         =   9600
+
+ TRANSFER SOLID MODEL BOUNDARY CONDITIONS TO FINITE ELEMENT MODEL
+      SURFACE LOADS  TRANSFERRED FROM AREAS         =   9600
+
+        2  AREAS (OF       12  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ SELECT      ELEMENTS CREATED FROM SELECTED AREAS.
+
+       80  ELEMENTS (OF     9600  DEFINED) SELECTED FROM
+        2 SELECTED AREAS BY  ESLA  COMMAND.
+
+ *** ANSYS GLOBAL STATUS *** 
+
+ TITLE =                                                                       
+ ANALYSIS TYPE =  STATIC (STEADY-STATE)
+ NUMBER OF ELEMENT TYPES =      1
+        80 ELEMENTS CURRENTLY SELECTED.  MAX ELEMENT NUMBER =        9600
+      4840 NODES CURRENTLY SELECTED.     MAX NODE NUMBER =           4840
+        18 KEYPOINTS CURRENTLY SELECTED. MAX KEYPOINT NUMBER =         18
+        28 LINES CURRENTLY SELECTED.     MAX LINE NUMBER =             28
+         2 AREAS CURRENTLY SELECTED.     MAX AREA NUMBER =             12
+
+ WRITE ANSYS DATABASE AS AN ANSYS INPUT FILE: LATERAL1.cdb                                                                                                                                                                                                                                                        
+
+ TRANSFER SOLID MODEL BOUNDARY CONDITIONS TO FINITE ELEMENT MODEL
+      SURFACE LOADS  TRANSFERRED FROM AREAS         =     80
+
+ TRANSFER SOLID MODEL BOUNDARY CONDITIONS TO FINITE ELEMENT MODEL
+      SURFACE LOADS  TRANSFERRED FROM AREAS         =     80
+
+ ***** END OF INPUT ENCOUNTERED *****
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          4
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
+
+
+ ***** PROBLEM TERMINATED BY INDICATED ERROR(S) OR BY END OF INPUT DATA *****
+
++--------------------- A N S Y S   S T A T I S T I C S ------------------------+
+
+Release: 15.0       Build: UP20131014   Platform: WINDOWS x64 
+Date Run: 12/10/2021   Time: 20:39
+Windows Process ID:        66732
+
+Processor Model: 11th Gen Intel(R) Core(TM) i5-11300H @ 3.10GHz
+
+Compiler: Intel(R) FORTRAN Compiler Version 12.1.0  (Build: 20120928)
+          Microsoft(R) Visual C/C++ Compiler Version 16.0  (Build: 40219)
+          Intel(R) Math Kernel Library Version 11.0.5 Product Build 20130612
+
+Total number of cores available    :    8
+Number of physical cores available :    4
+Number of cores requested          :    2 (Shared Memory Parallel)
+
+GPU Acceleration: Not Requested
+
+Job Name: file
+Working Directory: d:\projects\CYLINDER_Du
+
+Total CPU time for main thread                    :        1.3 seconds
+Total CPU time summed for all threads             :        1.3 seconds
+
+Elapsed time spent pre-processing model (/PREP7)  :        0.1 seconds
+Elapsed time spent solution - preprocessing       :        0.0 seconds
+Elapsed time spent computing solution             :        0.0 seconds
+Elapsed time spent solution - postprocessing      :        0.0 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+
+Maximum total memory used                         :       13.0 MB
+Maximum total memory allocated                    :     1088.0 MB
+Maximum total memory available                    :         16 GB
+
++------------------ E N D   A N S Y S   S T A T I S T I C S -------------------+
+
+
+ *---------------------------------------------------------------------------*
+ |                                                                           |
+ |                            ANSYS RUN COMPLETED                            |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |            Release 15.0           UP20131014         WINDOWS x64          |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Database Requested(-db)   512 MB    Scratch Memory Requested       512 MB |
+ | Maximum Database Used      10 MB    Maximum Scratch Memory Used      3 MB |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |        CP Time      (sec) =          1.344       Time  =  20:39:57        |
+ |        Elapsed Time (sec) =          4.000       Date  =  12/10/2021      |
+ |                                                                           |
+ *---------------------------------------------------------------------------*
