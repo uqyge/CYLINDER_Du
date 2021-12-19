@@ -185,3 +185,122 @@
  Both solid model and finite element model boundary conditions have been 
  applied to this model.  As solid loads are transferred to the nodes or  
  elements, they can overwrite directly applied loads.                    
+/COM,ANSYS RELEASE 15.0    UP20131014       21:06:50    12/10/2021
+
+ *** WARNING ***                         CP =       0.734   TIME= 21:06:53
+ Poisson's ratio NU set for material 1 deleted.                          
+
+ *** WARNING ***                         CP =       0.734   TIME= 21:06:53
+ Structural elements without mid nodes usually produce much more         
+ accurate results in quad or brick shape.                                
+
+ *** WARNING ***                         CP =       0.875   TIME= 21:06:54
+ The MINREF field of the CNVTOL command has been assigned a default      
+ value of 1.0 for convergence on F.  Check results carefully.            
+
+ *** WARNING ***                         CP =       0.875   TIME= 21:06:54
+ Both solid model and finite element model boundary conditions have been 
+ applied to this model.  As solid loads are transferred to the nodes or  
+ elements, they can overwrite directly applied loads.                    
+/COM,ANSYS RELEASE 15.0    UP20131014       21:11:33    12/10/2021
+
+ *** WARNING ***                         CP =       0.625   TIME= 21:11:36
+ Poisson's ratio NU set for material 1 deleted.                          
+
+ *** WARNING ***                         CP =       0.625   TIME= 21:11:36
+ Structural elements without mid nodes usually produce much more         
+ accurate results in quad or brick shape.                                
+
+ *** WARNING ***                         CP =       0.734   TIME= 21:11:36
+ The MINREF field of the CNVTOL command has been assigned a default      
+ value of 1.0 for convergence on F.  Check results carefully.            
+
+ *** WARNING ***                         CP =       0.766   TIME= 21:11:36
+ Both solid model and finite element model boundary conditions have been 
+ applied to this model.  As solid loads are transferred to the nodes or  
+ elements, they can overwrite directly applied loads.                    
+/COM,ANSYS RELEASE 15.0    UP20131014       21:11:37    12/10/2021
+
+ *** WARNING ***                         CP =       0.625   TIME= 21:11:37
+ Poisson's ratio NU set for material 1 deleted.                          
+
+ *** WARNING ***                         CP =       0.625   TIME= 21:11:37
+ Structural elements without mid nodes usually produce much more         
+ accurate results in quad or brick shape.                                
+
+ *** WARNING ***                         CP =       0.734   TIME= 21:11:37
+ The MINREF field of the CNVTOL command has been assigned a default      
+ value of 1.0 for convergence on F.  Check results carefully.            
+
+ *** WARNING ***                         CP =       0.766   TIME= 21:11:37
+ Both solid model and finite element model boundary conditions have been 
+ applied to this model.  As solid loads are transferred to the nodes or  
+ elements, they can overwrite directly applied loads.                    
+/COM,ANSYS RELEASE 15.0    UP20131014       21:11:38    12/10/2021
+
+ *** WARNING ***                         CP =       0.688   TIME= 21:11:39
+ Poisson's ratio NU set for material 1 deleted.                          
+
+ *** WARNING ***                         CP =       0.703   TIME= 21:11:39
+ Structural elements without mid nodes usually produce much more         
+ accurate results in quad or brick shape.                                
+
+ *** WARNING ***                         CP =       0.828   TIME= 21:11:39
+ The MINREF field of the CNVTOL command has been assigned a default      
+ value of 1.0 for convergence on F.  Check results carefully.            
+
+ *** WARNING ***                         CP =       0.859   TIME= 21:11:39
+ Both solid model and finite element model boundary conditions have been 
+ applied to this model.  As solid loads are transferred to the nodes or  
+ elements, they can overwrite directly applied loads.                    
+/COM,ANSYS RELEASE 15.0    UP20131014       21:51:22    12/10/2021
+
+ *** WARNING ***                         CP =       0.688   TIME= 21:51:25
+ Poisson's ratio NU set for material 1 deleted.                          
+
+ *** WARNING ***                         CP =       0.703   TIME= 21:51:25
+ Structural elements without mid nodes usually produce much more         
+ accurate results in quad or brick shape.                                
+
+ *** WARNING ***                         CP =       0.844   TIME= 21:51:25
+ The MINREF field of the CNVTOL command has been assigned a default      
+ value of 1.0 for convergence on F.  Check results carefully.            
+
+ *** WARNING ***                         CP =       0.875   TIME= 21:51:25
+ Both solid model and finite element model boundary conditions have been 
+ applied to this model.  As solid loads are transferred to the nodes or  
+ elements, they can overwrite directly applied loads.                    
+/COM,ANSYS RELEASE 15.0    UP20131014       21:51:27    12/10/2021
+
+ *** WARNING ***                         CP =       0.688   TIME= 21:51:28
+ Poisson's ratio NU set for material 1 deleted.                          
+
+ *** WARNING ***                         CP =       0.703   TIME= 21:51:28
+ Structural elements without mid nodes usually produce much more         
+ accurate results in quad or brick shape.                                
+
+ *** WARNING ***                         CP =       0.875   TIME= 21:51:28
+ The MINREF field of the CNVTOL command has been assigned a default      
+ value of 1.0 for convergence on F.  Check results carefully.            
+
+ *** WARNING ***                         CP =       0.906   TIME= 21:51:28
+ Both solid model and finite element model boundary conditions have been 
+ applied to this model.  As solid loads are transferred to the nodes or  
+ elements, they can overwrite directly applied loads.                    
+/COM,ANSYS RELEASE 15.0    UP20131014       21:51:29    12/10/2021
+
+ *** WARNING ***                         CP =       0.688   TIME= 21:51:30
+ Poisson's ratio NU set for material 1 deleted.                          
+
+ *** WARNING ***                         CP =       0.703   TIME= 21:51:30
+ Structural elements without mid nodes usually produce much more         
+ accurate results in quad or brick shape.                                
+
+ *** WARNING ***                         CP =       0.875   TIME= 21:51:30
+ The MINREF field of the CNVTOL command has been assigned a default      
+ value of 1.0 for convergence on F.  Check results carefully.            
+
+ *** WARNING ***                         CP =       0.906   TIME= 21:51:30
+ Both solid model and finite element model boundary conditions have been 
+ applied to this model.  As solid loads are transferred to the nodes or  
+ elements, they can overwrite directly applied loads.                    

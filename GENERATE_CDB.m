@@ -27,5 +27,15 @@ model.num = 1;
 %% 路径定义
 path.ANSYSPATH = 'D:\programs\ANSYS Inc\v150\ansys\bin\winx64\ANSYS150.exe';
 %% 调用函数
-createcdb(model,path)
 
+DOE.num = [1, 2, 3];
+DOE.t = [25E-6, 25E-6, 25E-6];
+DOE.R = [0.03, 0.04, 0.05]
+DOE.presload = [5E4, 2E5]
+
+for i = 1:3
+    model.t = DOE.t(i);
+    model.num = DOE.num(i);
+    model.R = DOE.R(i);
+    createcdb(model, path)
+end

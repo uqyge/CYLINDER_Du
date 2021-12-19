@@ -17,7 +17,7 @@ mu = 3.400e-01
 t = 2.500e-05
 presload = 1.000e+04
 L = 6.000e-01
-R = 3.000e-02
+R = 5.000e-02
 pw = 1.000e-02
 elesize = 5.000e-03
 FAXIS = 2.000e+01
@@ -118,7 +118,7 @@ ALLSEL,ALL
 
 FINISH
 /PREP7
-CDWRITE,DB,'CYLINDER_WANG_SS1','cdb',,'',''
+CDWRITE,DB,'CYLINDER_WANG_SS3','cdb',,'',''
 
 FLST,5,2,5,ORDE,2
 FITEM,5,8
@@ -126,5 +126,5 @@ FITEM,5,11
 ASEL,S, , ,P51X
 ESLA,S
 
-CDWRITE,DB,'LATERAL1','cdb',,'',''
+CDWRITE,DB,'LATERAL3','cdb',,'',''
 

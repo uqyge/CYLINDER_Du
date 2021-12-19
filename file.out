@@ -85,7 +85,7 @@
   INITIAL DIRECTORY = D:\projects\CYLINDER_Du
 
  20100520          VERSION=WINDOWS x64     RELEASE= 15.0     UP20131014
- CURRENT JOBNAME=file  20:39:57  DEC 10, 2021 CP=      0.625
+ CURRENT JOBNAME=file  21:51:30  DEC 10, 2021 CP=      0.625
 
      1  finish  
      2  /clear  
@@ -106,7 +106,7 @@
     17  t = 2.500e-05   
     18  presload = 1.000e+04
     19  L = 6.000e-01   
-    20  R = 3.000e-02   
+    20  R = 5.000e-02   
     21  pw = 1.000e-02  
     22  elesize = 5.000e-03 
     23  FAXIS = 2.000e+01   
@@ -207,7 +207,7 @@
    118      
    119  FINISH  
    120  /PREP7  
-   121  CDWRITE,DB,'CYLINDER_WANG_SS1','cdb',,'','' 
+   121  CDWRITE,DB,'CYLINDER_WANG_SS3','cdb',,'','' 
    122      
    123  FLST,5,2,5,ORDE,2   
    124  FITEM,5,8   
@@ -215,7 +215,7 @@
    126  ASEL,S, , ,P51X 
    127  ESLA,S  
    128      
-   129  CDWRITE,DB,'LATERAL1','cdb',,'',''  
+   129  CDWRITE,DB,'LATERAL3','cdb',,'',''  
    130      
 
  RUN SETUP PROCEDURE FROM FILE= D:\programs\ANSYS Inc\v150\ANSYS\apdl\start150.ans
@@ -233,7 +233,7 @@
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0      *****
  ANSYS Mechanical                                  
- 20100520          VERSION=WINDOWS x64   20:39:57  DEC 10, 2021 CP=      0.688
+ 20100520          VERSION=WINDOWS x64   21:51:30  DEC 10, 2021 CP=      0.688
 
                                                                                
 
@@ -330,7 +330,7 @@
 
  PARAMETER L =    0.6000000000    
 
- PARAMETER R =    0.3000000000E-01
+ PARAMETER R =    0.5000000000E-01
 
  PARAMETER PW =    0.1000000000E-01
 
@@ -349,7 +349,7 @@
  PROPERTY TABLE NUXY  MAT=      1  NUM. POINTS=  1
  SLOC=   1    0.3400000    
 
- *** WARNING ***                         CP =       0.688   TIME= 20:39:57
+ *** WARNING ***                         CP =       0.688   TIME= 21:51:30
  Poisson's ratio NU set for material 1 deleted.                          
 
  PROPERTY TABLE PRXY  MAT=      1  NUM. POINTS=  1
@@ -367,19 +367,19 @@
  REAL CONSTANT SET       1  ITEMS  19 TO  24
     0.0000       0.0000       0.0000       0.0000       0.0000       0.0000    
 
- KEYPOINT      0   X,Y,Z=  0.300000E-01   0.00000       0.00000      IN CSYS=  0
+ KEYPOINT      0   X,Y,Z=  0.500000E-01   0.00000       0.00000      IN CSYS=  0
 
      KEYPOINT NUMBER =      1
 
- KEYPOINT      0   X,Y,Z=  0.300000E-01  0.295000       0.00000      IN CSYS=  0
+ KEYPOINT      0   X,Y,Z=  0.500000E-01  0.295000       0.00000      IN CSYS=  0
 
      KEYPOINT NUMBER =      2
 
- KEYPOINT      0   X,Y,Z=  0.300000E-01  0.305000       0.00000      IN CSYS=  0
+ KEYPOINT      0   X,Y,Z=  0.500000E-01  0.305000       0.00000      IN CSYS=  0
 
      KEYPOINT NUMBER =      3
 
- KEYPOINT      0   X,Y,Z=  0.300000E-01  0.600000       0.00000      IN CSYS=  0
+ KEYPOINT      0   X,Y,Z=  0.500000E-01  0.600000       0.00000      IN CSYS=  0
 
      KEYPOINT NUMBER =      4
 
@@ -408,7 +408,7 @@
      DEGREES OF ARC=   360.00   NUMBER OF SEGMENTS=   4
  PRODUCE ALL TRIANGLE ELEMENTS IN 2D.
 
- *** WARNING ***                         CP =       0.688   TIME= 20:39:57
+ *** WARNING ***                         CP =       0.703   TIME= 21:51:30
  Structural elements without mid nodes usually produce much more         
  accurate results in quad or brick shape.                                
  USE THE MAPPED MESHER.
@@ -424,22 +424,22 @@
  SELECT      COMPONENT _Y                              
 
  GENERATE NODES AND ELEMENTS   IN  ALL  PICKED   AREAS    
-    ** AREA     1 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
-    ** AREA     2 MESHED WITH       0 QUADRILATERALS,       40 TRIANGLES **
-    ** AREA     3 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
-    ** AREA     4 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
-    ** AREA     5 MESHED WITH       0 QUADRILATERALS,       40 TRIANGLES **
-    ** AREA     6 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
-    ** AREA     7 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
-    ** AREA     8 MESHED WITH       0 QUADRILATERALS,       40 TRIANGLES **
-    ** AREA     9 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
-    ** AREA    10 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
-    ** AREA    11 MESHED WITH       0 QUADRILATERALS,       40 TRIANGLES **
-    ** AREA    12 MESHED WITH       0 QUADRILATERALS,     1180 TRIANGLES **
+    ** AREA     1 MESHED WITH       0 QUADRILATERALS,     1888 TRIANGLES **
+    ** AREA     2 MESHED WITH       0 QUADRILATERALS,       64 TRIANGLES **
+    ** AREA     3 MESHED WITH       0 QUADRILATERALS,     1888 TRIANGLES **
+    ** AREA     4 MESHED WITH       0 QUADRILATERALS,     1888 TRIANGLES **
+    ** AREA     5 MESHED WITH       0 QUADRILATERALS,       64 TRIANGLES **
+    ** AREA     6 MESHED WITH       0 QUADRILATERALS,     1888 TRIANGLES **
+    ** AREA     7 MESHED WITH       0 QUADRILATERALS,     1888 TRIANGLES **
+    ** AREA     8 MESHED WITH       0 QUADRILATERALS,       64 TRIANGLES **
+    ** AREA     9 MESHED WITH       0 QUADRILATERALS,     1888 TRIANGLES **
+    ** AREA    10 MESHED WITH       0 QUADRILATERALS,     1888 TRIANGLES **
+    ** AREA    11 MESHED WITH       0 QUADRILATERALS,       64 TRIANGLES **
+    ** AREA    12 MESHED WITH       0 QUADRILATERALS,     1888 TRIANGLES **
 
  NUMBER OF AREAS MESHED     =         12
- MAXIMUM NODE NUMBER        =       4840
- MAXIMUM ELEMENT NUMBER     =       9600
+ MAXIMUM NODE NUMBER        =       7744
+ MAXIMUM ELEMENT NUMBER     =      15360
 
  DELETE COMPONENT _Y                              
 
@@ -449,7 +449,7 @@
 
   MERGE COINCIDENT NODES WITHIN TOLERANCE OF  0.10000E-03
 
- *** NOTE ***                            CP =       0.766   TIME= 20:39:57
+ *** NOTE ***                            CP =       0.875   TIME= 21:51:30
  Zero nodes were merged.                                                 
 
  MERGE IDENTICAL MATERIALS WITHIN TOLERANCE OF  0.10000E-06
@@ -471,10 +471,10 @@
  NO KEYPOINTS WERE MERGED
 
  COMPRESS NODE NUMBERS
-      MAXIMUM NODE NUMBER COMPRESSED FROM      4840 TO      4840
+      MAXIMUM NODE NUMBER COMPRESSED FROM      7744 TO      7744
 
  COMPRESS ELEMENT NUMBERS
-      MAXIMUM ELEMENT NUMBER COMPRESSED FROM    9600 TO    9600
+      MAXIMUM ELEMENT NUMBER COMPRESSED FROM   15360 TO   15360
 
  COMPRESS KEYPOINT NUMBERS
       MAXIMUM KEYPOINT NUMBER COMPRESSED FROM      18 TO      18
@@ -503,7 +503,7 @@
  COMPRESS CONSTRAINT EQUATION NUMBERS
 
 
- ***** ROUTINE COMPLETED *****  CP =         0.797
+ ***** ROUTINE COMPLETED *****  CP =         0.875
 
 
 
@@ -513,7 +513,7 @@
  PERFORM A STATIC ANALYSIS
   THIS WILL BE A NEW ANALYSIS
 
- *** WARNING ***                         CP =       0.797   TIME= 20:39:57
+ *** WARNING ***                         CP =       0.875   TIME= 21:51:30
  The MINREF field of the CNVTOL command has been assigned a default      
  value of 1.0 for convergence on F.  Check results carefully.            
 
@@ -548,14 +548,14 @@
  SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN-0.10000E-05 AND  0.10000E-05
    KABS=  0.  TOLERANCE= 0.200000E-13
 
-         40  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+         64  NODES (OF       7744  DEFINED) SELECTED BY  NSEL  COMMAND.
 
- RESELECT     FOR ITEM=LOC  COMPONENT=Z     BETWEEN-0.30001E-01 AND  0.10000E-05
-   KABS=  0.  TOLERANCE= 0.300020E-09
+ RESELECT     FOR ITEM=LOC  COMPONENT=Z     BETWEEN-0.50001E-01 AND  0.10000E-05
+   KABS=  0.  TOLERANCE= 0.500020E-09
 
-         21  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+         33  NODES (OF       7744  DEFINED) SELECTED BY  NSEL  COMMAND.
 
- SPECIFIED CONSTRAINT UX   FOR SELECTED NODES         1 TO     4840 BY        1
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES         1 TO     7744 BY        1
  REAL=  0.00000000       IMAG=  0.00000000    
  ADDITIONAL DOFS=  UY    UZ  
 
@@ -564,14 +564,14 @@
  SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.60000     AND  0.60000    
    KABS=  0.  TOLERANCE= 0.200000E-13
 
-         40  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+         64  NODES (OF       7744  DEFINED) SELECTED BY  NSEL  COMMAND.
 
- RESELECT     FOR ITEM=LOC  COMPONENT=Z     BETWEEN-0.30001E-01 AND  0.10000E-05
-   KABS=  0.  TOLERANCE= 0.300020E-09
+ RESELECT     FOR ITEM=LOC  COMPONENT=Z     BETWEEN-0.50001E-01 AND  0.10000E-05
+   KABS=  0.  TOLERANCE= 0.500020E-09
 
-         21  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+         33  NODES (OF       7744  DEFINED) SELECTED BY  NSEL  COMMAND.
 
- SPECIFIED CONSTRAINT UX   FOR SELECTED NODES         1 TO     4840 BY        1
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES         1 TO     7744 BY        1
  REAL=  0.00000000       IMAG=  0.00000000    
  ADDITIONAL DOFS=  UZ  
 
@@ -586,7 +586,7 @@
      LOAD KEY =1         LOAD LABEL = PRES
      VALUES =           10000.              0.0000    
 
- *** WARNING ***                         CP =       0.797   TIME= 20:39:57
+ *** WARNING ***                         CP =       0.906   TIME= 21:51:30
  Both solid model and finite element model boundary conditions have been 
  applied to this model.  As solid loads are transferred to the nodes or  
  elements, they can overwrite directly applied loads.                    
@@ -596,45 +596,45 @@
  SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN-0.10000E-05 AND  0.10000E-05
    KABS=  0.  TOLERANCE= 0.200000E-13
 
-         40  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+         64  NODES (OF       7744  DEFINED) SELECTED BY  NSEL  COMMAND.
 
- *GET  NN        FROM  NODE  ITEM=COUN       VALUE=  40.0000000    
+ *GET  NN        FROM  NODE  ITEM=COUN       VALUE=  64.0000000    
 
  SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
 
- PARAMETER FNN =    0.5000000000    
+ PARAMETER FNN =    0.3125000000    
 
  SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN-0.10000E-05 AND  0.10000E-05
    KABS=  0.  TOLERANCE= 0.200000E-13
 
-         40  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+         64  NODES (OF       7744  DEFINED) SELECTED BY  NSEL  COMMAND.
 
- SPECIFIED NODAL LOAD FY   FOR SELECTED NODES         1 TO     4840 BY        1
-  REAL=-0.500000000       IMAG=  0.00000000    
+ SPECIFIED NODAL LOAD FY   FOR SELECTED NODES         1 TO     7744 BY        1
+  REAL=-0.312500000       IMAG=  0.00000000    
 
  SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
 
  SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.60000     AND  0.60000    
    KABS=  0.  TOLERANCE= 0.200000E-13
 
-         40  NODES (OF       4840  DEFINED) SELECTED BY  NSEL  COMMAND.
+         64  NODES (OF       7744  DEFINED) SELECTED BY  NSEL  COMMAND.
 
- SPECIFIED NODAL LOAD FY   FOR SELECTED NODES         1 TO     4840 BY        1
-  REAL= 0.500000000       IMAG=  0.00000000    
+ SPECIFIED NODAL LOAD FY   FOR SELECTED NODES         1 TO     7744 BY        1
+  REAL= 0.312500000       IMAG=  0.00000000    
 
  SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
 
  FINISH SOLUTION PROCESSING
 
 
- ***** ROUTINE COMPLETED *****  CP =         0.797
+ ***** ROUTINE COMPLETED *****  CP =         0.906
 
 
 1
 
  ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 15.0      *****
  ANSYS Mechanical                                  
- 20100520          VERSION=WINDOWS x64   20:39:57  DEC 10, 2021 CP=      0.797
+ 20100520          VERSION=WINDOWS x64   21:51:30  DEC 10, 2021 CP=      0.906
 
                                                                                
 
@@ -646,25 +646,25 @@
  TITLE =                                                                       
  ANALYSIS TYPE =  STATIC (STEADY-STATE)
  NUMBER OF ELEMENT TYPES =      1
-      9600 ELEMENTS CURRENTLY SELECTED.  MAX ELEMENT NUMBER =        9600
-      4840 NODES CURRENTLY SELECTED.     MAX NODE NUMBER =           4840
+     15360 ELEMENTS CURRENTLY SELECTED.  MAX ELEMENT NUMBER =       15360
+      7744 NODES CURRENTLY SELECTED.     MAX NODE NUMBER =           7744
         18 KEYPOINTS CURRENTLY SELECTED. MAX KEYPOINT NUMBER =         18
         28 LINES CURRENTLY SELECTED.     MAX LINE NUMBER =             28
         12 AREAS CURRENTLY SELECTED.     MAX AREA NUMBER =             12
 
- WRITE ANSYS DATABASE AS AN ANSYS INPUT FILE: CYLINDER_WANG_SS1.cdb                                                                                                                                                                                                                                               
+ WRITE ANSYS DATABASE AS AN ANSYS INPUT FILE: CYLINDER_WANG_SS3.cdb                                                                                                                                                                                                                                               
 
  TRANSFER SOLID MODEL BOUNDARY CONDITIONS TO FINITE ELEMENT MODEL
-      SURFACE LOADS  TRANSFERRED FROM AREAS         =   9600
+      SURFACE LOADS  TRANSFERRED FROM AREAS         =  15360
 
  TRANSFER SOLID MODEL BOUNDARY CONDITIONS TO FINITE ELEMENT MODEL
-      SURFACE LOADS  TRANSFERRED FROM AREAS         =   9600
+      SURFACE LOADS  TRANSFERRED FROM AREAS         =  15360
 
         2  AREAS (OF       12  DEFINED) SELECTED BY  ASEL  COMMAND.
 
  SELECT      ELEMENTS CREATED FROM SELECTED AREAS.
 
-       80  ELEMENTS (OF     9600  DEFINED) SELECTED FROM
+      128  ELEMENTS (OF    15360  DEFINED) SELECTED FROM
         2 SELECTED AREAS BY  ESLA  COMMAND.
 
  *** ANSYS GLOBAL STATUS *** 
@@ -672,19 +672,19 @@
  TITLE =                                                                       
  ANALYSIS TYPE =  STATIC (STEADY-STATE)
  NUMBER OF ELEMENT TYPES =      1
-        80 ELEMENTS CURRENTLY SELECTED.  MAX ELEMENT NUMBER =        9600
-      4840 NODES CURRENTLY SELECTED.     MAX NODE NUMBER =           4840
+       128 ELEMENTS CURRENTLY SELECTED.  MAX ELEMENT NUMBER =       15360
+      7744 NODES CURRENTLY SELECTED.     MAX NODE NUMBER =           7744
         18 KEYPOINTS CURRENTLY SELECTED. MAX KEYPOINT NUMBER =         18
         28 LINES CURRENTLY SELECTED.     MAX LINE NUMBER =             28
          2 AREAS CURRENTLY SELECTED.     MAX AREA NUMBER =             12
 
- WRITE ANSYS DATABASE AS AN ANSYS INPUT FILE: LATERAL1.cdb                                                                                                                                                                                                                                                        
+ WRITE ANSYS DATABASE AS AN ANSYS INPUT FILE: LATERAL3.cdb                                                                                                                                                                                                                                                        
 
  TRANSFER SOLID MODEL BOUNDARY CONDITIONS TO FINITE ELEMENT MODEL
-      SURFACE LOADS  TRANSFERRED FROM AREAS         =     80
+      SURFACE LOADS  TRANSFERRED FROM AREAS         =    128
 
  TRANSFER SOLID MODEL BOUNDARY CONDITIONS TO FINITE ELEMENT MODEL
-      SURFACE LOADS  TRANSFERRED FROM AREAS         =     80
+      SURFACE LOADS  TRANSFERRED FROM AREAS         =    128
 
  ***** END OF INPUT ENCOUNTERED *****
 
@@ -699,8 +699,8 @@
 +--------------------- A N S Y S   S T A T I S T I C S ------------------------+
 
 Release: 15.0       Build: UP20131014   Platform: WINDOWS x64 
-Date Run: 12/10/2021   Time: 20:39
-Windows Process ID:        66732
+Date Run: 12/10/2021   Time: 21:51
+Windows Process ID:          928
 
 Processor Model: 11th Gen Intel(R) Core(TM) i5-11300H @ 3.10GHz
 
@@ -717,8 +717,8 @@ GPU Acceleration: Not Requested
 Job Name: file
 Working Directory: d:\projects\CYLINDER_Du
 
-Total CPU time for main thread                    :        1.3 seconds
-Total CPU time summed for all threads             :        1.3 seconds
+Total CPU time for main thread                    :        1.5 seconds
+Total CPU time summed for all threads             :        1.6 seconds
 
 Elapsed time spent pre-processing model (/PREP7)  :        0.1 seconds
 Elapsed time spent solution - preprocessing       :        0.0 seconds
@@ -726,7 +726,7 @@ Elapsed time spent computing solution             :        0.0 seconds
 Elapsed time spent solution - postprocessing      :        0.0 seconds
 Elapsed time spent post-processing model (/POST1) :        0.0 seconds
 
-Maximum total memory used                         :       13.0 MB
+Maximum total memory used                         :       19.0 MB
 Maximum total memory allocated                    :     1088.0 MB
 Maximum total memory available                    :         16 GB
 
@@ -744,11 +744,11 @@ Maximum total memory available                    :         16 GB
  |---------------------------------------------------------------------------|
  |                                                                           |
  | Database Requested(-db)   512 MB    Scratch Memory Requested       512 MB |
- | Maximum Database Used      10 MB    Maximum Scratch Memory Used      3 MB |
+ | Maximum Database Used      15 MB    Maximum Scratch Memory Used      4 MB |
  |                                                                           |
  |---------------------------------------------------------------------------|
  |                                                                           |
- |        CP Time      (sec) =          1.344       Time  =  20:39:57        |
- |        Elapsed Time (sec) =          4.000       Date  =  12/10/2021      |
+ |        CP Time      (sec) =          1.594       Time  =  21:51:31        |
+ |        Elapsed Time (sec) =          3.000       Date  =  12/10/2021      |
  |                                                                           |
  *---------------------------------------------------------------------------*
