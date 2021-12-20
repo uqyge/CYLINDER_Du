@@ -20,5 +20,5 @@ for num = 1:size(geo, 1)
     doe_res(num).res = RESULT;
 end
 
-save({'doe_res'}, 'doe_res')
+save('doe_res', 'doe_res', 'RESU', 'RESLOAD')
 % uisave({'doe_res'}, 'doe_res')

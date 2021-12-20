@@ -25,7 +25,8 @@ model.elesize = 0.005;
 model.FAXIS = 20;
 model.num = 1;
 %% 路径定义
-path.ANSYSPATH = 'D:\programs\ANSYS Inc\v150\ansys\bin\winx64\ANSYS150.exe';
+% path.ANSYSPATH = 'D:\programs\ANSYS Inc\v150\ansys\bin\winx64\ANSYS150.exe';
+path.ANSYSPATH = 'C:\Program Files\ANSYS Inc\v180\ansys\bin\winx64\ANSYS180.exe'
 %% 调用函数
 
 DOE.num = [1, 2, 3];
