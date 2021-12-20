@@ -1,7 +1,9 @@
 %% 清空数据
 clear;clear global;clc;
 %% 设置文件名
-for num = 1:1
+geo = csvread('./geo.csv');
+
+for num = 1:size(geo, 1)
     global FILE
     FILE.FIRST = ['CYLINDER_WANG_SS', num2str(num), '.cdb'];
     FILE.SECOND = ['LATERAL', num2str(num), '.cdb'];
@@ -18,4 +20,5 @@ for num = 1:1
     doe_res(num).res = RESULT;
 end
 
+save({'doe_res'}, 'doe_res')
 % uisave({'doe_res'}, 'doe_res')

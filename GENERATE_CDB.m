@@ -32,10 +32,11 @@ DOE.num = [1, 2, 3];
 DOE.t = [25E-6, 25E-6, 25E-6];
 DOE.R = [0.03, 0.04, 0.05]
 DOE.presload = [5E4, 2E5]
+csv_in = csvread('./geo.csv')
 
 for i = 1:3
-    model.t = DOE.t(i);
-    model.num = DOE.num(i);
-    model.R = DOE.R(i);
+    model.num = i;
+    model.t = csv_in(i, 1);
+    model.R = csv_in(i, 2);
     createcdb(model, path)
 end
