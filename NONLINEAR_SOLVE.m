@@ -1,24 +1,26 @@
-%% Çå¿ÕÊý¾Ý
+%% ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 clear;clear global;clc;
-%% ÉèÖÃÎÄ¼þÃû
+%% ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 geo = csvread('./geo.csv');
 
 for num = 1:size(geo, 1)
     global FILE
     FILE.FIRST = ['CYLINDER_WANG_SS', num2str(num), '.cdb'];
     FILE.SECOND = ['LATERAL', num2str(num), '.cdb'];
-    %% ÉèÖÃºáÏòÔØºÉ(¹ÀÖµ£©
+    %% ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½Øºï¿½(ï¿½ï¿½Öµï¿½ï¿½
     global LPRES
-    LPRES = 1000;
-    %% µ÷ÓÃ¼ÆËã
+    LPRES = 3000;
+    %% ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½
     main;
-    %% »ñÈ¡½á¹û
+    %% ï¿½ï¿½È¡ï¿½ï¿½ï¿½
     global RESULT
-    % RESULT.WRINKLELOAD ÊÇÒ»¸öÊý×é£¬ÆäÖÐ×îÐ¡ÖµÎªµÚÒ»´Î³öÏÖñÞÖåµÄÔØºÉ
-    % RESULT.FAILLOAD ÊÇÊ§Ð§ÔØºÉ
-    % RESULT.FAILDISP ÊÇÊ§Ð§Î»ÒÆ
+    % RESULT.WRINKLELOAD ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ÖµÎªï¿½ï¿½Ò»ï¿½Î³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½
+    % RESULT.FAILLOAD ï¿½ï¿½Ê§Ð§ï¿½Øºï¿½
+    % RESULT.FAILDISP ï¿½ï¿½Ê§Ð§Î»ï¿½ï¿½
     doe_res(num).res = RESULT;
+    doe_res(num).u = RESU;
+    doe_res(num).load = RESLOAD;
 end
 
-save('doe_res', 'doe_res', 'RESU', 'RESLOAD')
+save('doe_res', 'doe_res')
 % uisave({'doe_res'}, 'doe_res')
