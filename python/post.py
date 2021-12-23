@@ -9,38 +9,42 @@ import scipy.io as sio
 pio.renderers.default = "notebook_connected"
 
 #%%
-case = 0
-geo = pd.read_csv(f"../../case_{case}/geo.csv", names=["t", "R"], header=None)
-# geo
-# %%
-doe_res = sio.loadmat(f"../../case_{case}/doe_res.mat")
-# doe_res
+
 
 # %%
 df_case = pd.DataFrame()
-for i in range(len(geo)):
-    # i = 0
-    # print(i, geo.iloc[i])
+case = 0
+for case in [0, 1, 2, 3, 4, 6, 7, 8, 9]:
+    print(case)
+    geo = pd.read_csv(f"../../case_{case}/geo.csv", names=["t", "R"], header=None)
+    doe_res = sio.loadmat(f"../../case_{case}/doe_res.mat")
 
-    geo_val = geo.values[i]
-    u = -doe_res["doe_res"]["u"][0, i][1::].reshape(-1)
-    load = -doe_res["doe_res"]["load"][0, i][1::].reshape(-1)
-    incr = np.asarray(range(len(u)))
-    incr_u_load = np.vstack([incr, u, load]).T
+    for i in range(len(geo)):
+        # i = 0
+        # print(i, geo.iloc[i])
 
-    FAILDISP = (doe_res["doe_res"]["res"][0, i]["FAILDISP"],)
-    FAILLOAD = (doe_res["doe_res"]["res"][0, i]["FAILLOAD"],)
+        geo_val = geo.values[i]
+        u = -doe_res["doe_res"]["u"][0, i][1::].reshape(-1)
+        load = -doe_res["doe_res"]["load"][0, i][1::].reshape(-1)
+        incr = np.asarray(range(len(u)))
+        incr_u_load = np.vstack([incr, u, load]).T
 
-    # print(FAILDISP, FAILLOAD)
-    # print(u[-1], load[-1])
+        FAILDISP = (doe_res["doe_res"]["res"][0, i]["FAILDISP"],)
+        FAILLOAD = (doe_res["doe_res"]["res"][0, i]["FAILLOAD"],)
 
-    assert (FAILLOAD == load[-1]) & (FAILDISP == u[-1])
-    # plt.plot(u, load)
-    # plt.show()
+        # print(FAILDISP, FAILLOAD)
+        # print(u[-1], load[-1])
 
-    data = np.hstack([incr_u_load, np.ones(len(u)).reshape(-1, 1) * geo_val])
-    df_incr = pd.DataFrame(data, columns=["incr", "u", "load"] + geo.columns.tolist())
-    df_case = pd.concat([df_case, df_incr])
+        assert (FAILLOAD == load[-1]) & (FAILDISP == u[-1])
+        # plt.plot(u, load)
+        # plt.show()
+
+        data = np.hstack([incr_u_load, np.ones(len(u)).reshape(-1, 1) * geo_val])
+        df_incr = pd.DataFrame(
+            data, columns=["incr", "u", "load"] + geo.columns.tolist()
+        )
+        df_case = pd.concat([df_case, df_incr])
+
 # plt.plot(df_incr.u, df_incr.load)
 df_case.reset_index(inplace=True)
 # df_case.tail()
@@ -60,5 +64,9 @@ case_incr_max = [
 px.scatter_3d(df_case.iloc[case_incr_max], x="R", y="t", z="load")
 
 #%%
-df_case[['R','t']].unique()
+
+# %%
+
+# %%
+len(df_case['R'].unique())
 # %%
