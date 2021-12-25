@@ -118,15 +118,29 @@ model = lm.Lars(fit_intercept=False)
 lars_pce = chaospy.fit_regression(expansion, samples.T, evaluations, model=model)
 
 # %%
-doe['lars'] = lars_pce(*samples.T)
+doe["lars"] = lars_pce(*samples.T)
 # %%
-plt.plot(doe.lars,doe.pce,'d')
+plt.plot(doe.lars, doe.pce, "d")
 # %%
-plt.plot(doe.load,doe.pce,'d')
+plt.plot(doe.load, doe.pce, "d")
 # %%
-plt.plot(doe.load,doe.lars,'d')
+plt.plot(doe.load, doe.lars, "d")
 # %%
 px.scatter_3d(doe, x="t", y="R", z="lars")
 # %%
 px.scatter_3d(doe, x="t", y="R", z="pce")
+# %%
+t_test = np.linspace(*t, 20)
+r_test = 0.02 * np.ones(t_test.shape)
+
+test = np.vstack([t_test, r_test])
+plt.plot(t_test, pce_model(*test))
+
+# %%
+r_test = np.linspace(*R, 20)
+t_test = 20e-6 * np.ones(r_test.shape)
+
+test = np.vstack([t_test, r_test])
+plt.plot(r_test, pce_model(*test))
+
 # %%
