@@ -11,13 +11,13 @@ pio.renderers.default = "notebook_connected"
 # %%
 df_case = pd.DataFrame()
 case = 0
-# for case in [0, 1, 2, 3, 4, 6, 7, 8, 9]:
-for case in range(30):
+for case in [0, 1, 2, 3, 4, 6, 7, 8, 9]:
+# for case in range(30):
     print(case)
     # geo = pd.read_csv(f"../../case_{case}/geo.csv", names=["t", "R"], header=None)
     # doe_res = sio.loadmat(f"../../case_{case}/doe_res.mat")
-    geo = pd.read_csv(f"../../LPRES_1000/case_{case}/geo.csv", names=["t", "R"], header=None)
-    doe_res = sio.loadmat(f"../../LPRES_1000/case_{case}/doe_res.mat")
+    geo = pd.read_csv(f"../../LPRES_3000/case_{case}/geo.csv", names=["t", "R"], header=None)
+    doe_res = sio.loadmat(f"../../LPRES_3000/case_{case}/doe_res.mat")
     
 
     for i in range(len(geo)):
@@ -66,13 +66,7 @@ case_incr_max = [
 px.scatter_3d(df_case.iloc[case_incr_max], x="R", y="t", z="load")
 
 #%%
-
-# %%
-
-# %%
-len(df_case["R"].unique())
-# %%
-df_case.to_hdf('LPRES1000.h5',key="df_case")
+df_case.to_hdf("LPRES3000.h5", key='df_case')
 # %%
 
 # %%
@@ -84,6 +78,4 @@ a = df_case[df_case.R == i]
 plt.plot(a.u,a.load)
 # %%
 df_case.iloc[case_incr_max]
-# %%
-df_case.to_hdf('LPRES1000.h5',key="df_case")
 # %%

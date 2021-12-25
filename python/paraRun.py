@@ -27,7 +27,7 @@ out = vec * (ub - lb) + lb
 root = r"C:\Users\edison\workspace\matlab"
 source_dir = root + "\CYLINDER_Du"
 
-nproc = 10
+nproc = 16
 
 # %%
 for i, geo in enumerate(np.array_split(out, nproc)):
@@ -50,8 +50,12 @@ for i in range(nproc):
 for i in range(nproc):
     # f"cd d:\projects\case_{i}\ && matlab -nosplash -nodesktop -r NONLINEAR_SOLVE"
     os.system(rf"cd {root}\case_{i}\ && matlab -nosplash -nodesktop -r NONLINEAR_SOLVE")
-    time.sleep(1)
+    time.sleep(3)
 
 #%%
 for i in range(nproc):
     shutil.rmtree(root + rf"\case_{i}")
+
+#%%
+
+
