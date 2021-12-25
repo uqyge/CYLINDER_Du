@@ -87,7 +87,7 @@ dist_t = chaospy.Uniform(*t)
 dist_r = chaospy.Uniform(*R)
 joint = chaospy.J(dist_t, dist_r)
 
-expansion = chaospy.generate_expansion(4, joint)
+expansion = chaospy.generate_expansion(8, joint)
 # %%
 doe = df.iloc[case_incr_max]
 
@@ -101,11 +101,32 @@ doe["pce"] = pce_model(*samples.T)
 
 
 # %%
-px.scatter_3d(doe,x="t",y="R",z="pce")
+px.scatter_3d(doe, x="t", y="R", z="pce")
 # %%
-px.scatter_3d(doe,x="t",y="R",z="load")
+px.scatter_3d(doe, x="t", y="R", z="load")
 # %%
-plt.plot(doe.pce,doe.load,'d')
+plt.plot(doe.pce, doe.load, "d")
 # %%
 
+# %%
+from sklearn import linear_model as lm
+
+
+#%%
+model = lm.Lars(fit_intercept=False)
+# %%
+lars_pce = chaospy.fit_regression(expansion, samples.T, evaluations, model=model)
+
+# %%
+doe['lars'] = lars_pce(*samples.T)
+# %%
+plt.plot(doe.lars,doe.pce,'d')
+# %%
+plt.plot(doe.load,doe.pce,'d')
+# %%
+plt.plot(doe.load,doe.lars,'d')
+# %%
+px.scatter_3d(doe, x="t", y="R", z="lars")
+# %%
+px.scatter_3d(doe, x="t", y="R", z="pce")
 # %%
