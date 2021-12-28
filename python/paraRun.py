@@ -68,7 +68,7 @@ import post
 # %%
 case = "".join(params) + str(size)
 date = datetime.datetime.now().strftime("%y-%m-%d")
-data_repo = root + rf"/{case}_{date}"
+data_repo = root + rf"/LPRES3000_{case}_{date}"
 
 for i in range(nproc):
     case_dir = root + rf"\case_{i}"
