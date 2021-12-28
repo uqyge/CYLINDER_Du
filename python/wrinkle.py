@@ -1,20 +1,21 @@
 #%%
 from chaospy.descriptives.expected import E
+import chaospy
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import plotly.express as px
 
-# import plotly.io as pio
+import plotly.io as pio
 
-# pio.renderers.default = "notebook_connected"
+pio.renderers.default = "notebook_connected"
 #%%
-df = pd.read_hdf("./LPRES1000.h5")
+# df = pd.read_hdf("./LPRES3000.h5")
+df = pd.read_hdf("./LPRES3000_32_new.h5")
 
 # %%
 for R in df["R"].unique():
     df_curve = df[df["R"] == R]
-    # print(R,df[df['R']==R].u.shape)
     plt.plot(df_curve.u, df_curve.load)
 
 
@@ -22,7 +23,7 @@ for R in df["R"].unique():
 grd = np.gradient(df_curve.load, df_curve.u)
 
 for i in range(grd.size):
-    if grd[i] / grd[i + 1] > 1.005:
+    if grd[i] / grd[i + 1] > 1.05:
         break
     # print(i,grd[i])
 plt.figure()
@@ -77,7 +78,7 @@ df_wrinkle = pd.DataFrame(np.asarray(idx), columns=["load", "t", "R"])
 # %%
 px.scatter_3d(df_wrinkle, x="t", y="R", z="load")
 # %%
-import chaospy
+
 
 # %%
 t = [25e-6, 50e-6]
@@ -143,4 +144,48 @@ t_test = 20e-6 * np.ones(r_test.shape)
 test = np.vstack([t_test, r_test])
 plt.plot(r_test, pce_model(*test))
 
+# %%
+t_mean = 37.5e-6
+R_mean = 0.03
+L = 0.6
+
+V = 2 * np.pi * R_mean * t_mean * L
+print(f"{V=}")
+
+
+def t_constraint(r):
+    return V / (r * (2 * np.pi * L))
+
+
+# %%
+r = np.linspace(0.02, 0.04, 100)
+t = t_constraint(r)
+# %%
+test = np.vstack([t, r])
+pred = pce_model(*test)
+# %%
+opt = pd.DataFrame(np.vstack([t, r, pred]).T, columns=["t", "R", "pce"])
+
+# %%
+px.scatter_3d(opt, x="t", y="R", z="pce")
+# %%
+plt.plot(r, t)
+
+# %%
+opt.iloc[opt["pce"].idxmin()]
+
+# %%
+opt.iloc[opt["pce"].idxmax()]
+# %%
+px.scatter(df, x="u", y="load", color="R")
+# %%
+import matplotlib.tri as tri
+import matplotlib.pyplot as plt
+
+x = doe.t
+y = doe.R
+z = doe.load
+plt.tricontour(x, y, z, 15, linewidths=0.5, colors="k")
+plt.tricontourf(x, y, z, 15)
+plt.colorbar()
 # %%

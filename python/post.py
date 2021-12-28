@@ -1,4 +1,6 @@
 #%%
+import datetime
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -10,18 +12,18 @@ pio.renderers.default = "notebook_connected"
 
 # %%
 df_case = pd.DataFrame()
-case = 0
-# for case in [0, 1, 2, 3, 4, 6, 7, 8, 9]:
-for case in range(30):
+# for case in range(30):
+for case in range(16):
     print(case)
-    # geo = pd.read_csv(f"../../case_{case}/geo.csv", names=["t", "R"], header=None)
-    # doe_res = sio.loadmat(f"../../case_{case}/doe_res.mat")
-    geo = pd.read_csv(f"../../LPRES_1000/case_{case}/geo.csv", names=["t", "R"], header=None)
-    doe_res = sio.loadmat(f"../../LPRES_1000/case_{case}/doe_res.mat")
-    
+    geo = pd.read_csv(
+        f"../../case_{case}/geo.csv",
+        # names=["t", "R"],
+        names=["t", "R", "p"],
+        header=None,
+    )
+    doe_res = sio.loadmat(f"../../case_{case}/doe_res.mat")
 
     for i in range(len(geo)):
-        # i = 0
         # print(i, geo.iloc[i])
 
         geo_val = geo.values[i]
@@ -46,14 +48,15 @@ for case in range(30):
         )
         df_case = pd.concat([df_case, df_incr])
 
-# plt.plot(df_incr.u, df_incr.load)
 df_case.reset_index(inplace=True)
 # df_case.tail()
+
 # %%
 for R in df_case["R"].unique():
     df_curve = df_case[df_case["R"] == R]
     # print(R,df_case[df_case['R']==R].u.shape)
     plt.plot(df_curve.u, df_curve.load)
+    # px.scatter(df_curve, x="u", y="load")
 plt.show()
 
 # %%
@@ -61,29 +64,15 @@ case_incr_max = [
     df_case["incr"][df_case["R"] == unique_R].idxmax()
     for unique_R in df_case["R"].unique()
 ]
+print(f"{len(case_incr_max)=}")
+# %%
+px.scatter_3d(df_case.iloc[case_incr_max], x="R", y="p", z="load")
 
 # %%
-px.scatter_3d(df_case.iloc[case_incr_max], x="R", y="t", z="load")
+case = "".join(geo.columns) + str(len(case_incr_max))
+date = datetime.datetime.now().strftime("%y-%m-%d")
+filename = f"LPRES3000_{case}_{date}.h5"
+print(f"{filename=}")
+df_case.to_hdf(filename, key="df_case")
 
-#%%
-
-# %%
-
-# %%
-len(df_case["R"].unique())
-# %%
-df_case.to_hdf('LPRES1000.h5',key="df_case")
-# %%
-
-# %%
-for i in df_case.R.unique():
-    print(i)
-# %%
-a = df_case[df_case.R == i]
-# %%
-plt.plot(a.u,a.load)
-# %%
-df_case.iloc[case_incr_max]
-# %%
-df_case.to_hdf('LPRES1000.h5',key="df_case")
 # %%
