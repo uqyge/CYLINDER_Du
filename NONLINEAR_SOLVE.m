@@ -20,7 +20,8 @@ for num = 1:size(geo, 1)
     doe_res(num).res = RESULT;
     doe_res(num).u = RESU;
     doe_res(num).load = RESLOAD;
+    save('doe_res', 'doe_res')
 end
 
-save('doe_res', 'doe_res')
+% save('doe_res', 'doe_res')
 % uisave({'doe_res'}, 'doe_res')
