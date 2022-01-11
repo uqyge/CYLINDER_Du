@@ -83,6 +83,11 @@ for incr = 1:PARA.SUBSTEPS
 
         calc_localcoord_current();
         iter = iter + 1;
+
+        % if (iter > 20)
+        %     break
+        % end
+
     end
 
 end
@@ -94,6 +99,10 @@ PARA.SUBSTEPS = SUBSTEPS_LATERAL * 3;
 %% Second Load Step - Tip Load
 incr = 1;
 endcalculation = 0;
+
+% if (iter > 20)
+%     endcalculation = 1
+% end
 
 while (~endcalculation)
     display(incr);

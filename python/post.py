@@ -12,41 +12,43 @@ pio.renderers.default = "notebook_connected"
 
 # %%
 df_case = pd.DataFrame()
-# for case in range(30):
+
+# for case in [0, 1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15]:
+# for case in [8]:
 for case in range(16):
     print(case)
     geo = pd.read_csv(
         f"../../case_{case}/geo.csv",
         # names=["t", "R"],
-        names=["t", "R", "p"],
+        names=["t", "R", "p", "L"],
         header=None,
     )
     doe_res = sio.loadmat(f"../../case_{case}/doe_res.mat")
 
     for i in range(len(geo)):
         # print(i, geo.iloc[i])
+        if i < doe_res["doe_res"]["u"].shape[1]:
+            geo_val = geo.values[i]
+            u = -doe_res["doe_res"]["u"][0, i][1::].reshape(-1)
+            load = -doe_res["doe_res"]["load"][0, i][1::].reshape(-1)
+            incr = np.asarray(range(len(u)))
+            incr_u_load = np.vstack([incr, u, load]).T
 
-        geo_val = geo.values[i]
-        u = -doe_res["doe_res"]["u"][0, i][1::].reshape(-1)
-        load = -doe_res["doe_res"]["load"][0, i][1::].reshape(-1)
-        incr = np.asarray(range(len(u)))
-        incr_u_load = np.vstack([incr, u, load]).T
+            FAILDISP = (doe_res["doe_res"]["res"][0, i]["FAILDISP"],)
+            FAILLOAD = (doe_res["doe_res"]["res"][0, i]["FAILLOAD"],)
 
-        FAILDISP = (doe_res["doe_res"]["res"][0, i]["FAILDISP"],)
-        FAILLOAD = (doe_res["doe_res"]["res"][0, i]["FAILLOAD"],)
+            # print(FAILDISP, FAILLOAD)
+            # print(u[-1], load[-1])
 
-        # print(FAILDISP, FAILLOAD)
-        # print(u[-1], load[-1])
+            assert (FAILLOAD == load[-1]) & (FAILDISP == u[-1])
+            # plt.plot(u, load)
+            # plt.show()
 
-        assert (FAILLOAD == load[-1]) & (FAILDISP == u[-1])
-        # plt.plot(u, load)
-        # plt.show()
-
-        data = np.hstack([incr_u_load, np.ones(len(u)).reshape(-1, 1) * geo_val])
-        df_incr = pd.DataFrame(
-            data, columns=["incr", "u", "load"] + geo.columns.tolist()
-        )
-        df_case = pd.concat([df_case, df_incr])
+            data = np.hstack([incr_u_load, np.ones(len(u)).reshape(-1, 1) * geo_val])
+            df_incr = pd.DataFrame(
+                data, columns=["incr", "u", "load"] + geo.columns.tolist()
+            )
+            df_case = pd.concat([df_case, df_incr])
 
 df_case.reset_index(inplace=True)
 # df_case.tail()

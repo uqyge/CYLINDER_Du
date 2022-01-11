@@ -8,15 +8,15 @@ import numpy as np
 import sobol_seq
 
 #%%
-size = 400
+size = 32
 dict = {
-    "t": [25e-6, 75e-6],
+    "t": [75e-6, 75e-6],
     "R": [0.02, 0.04],
-    "p": [8e3, 1.2e4],
+    "p": [1e4, 5e4],
     "L": [0.5, 0.7],
 }
 
-params = ["t", "R", "p"]
+params = ["t", "R", "p", "L"]
 data = np.vstack([dict[i] for i in params])
 
 vec = sobol_seq.i4_sobol_generate(data.shape[0], size)
@@ -27,7 +27,7 @@ ub = data[:, 1]
 out = vec * (ub - lb) + lb
 
 np.random.shuffle(out)
-# print(out[:5, :])
+print(out[:5, :])
 
 #%%
 root = r"C:\Users\edison\workspace\matlab"
@@ -50,6 +50,7 @@ for i, geo in enumerate(np.array_split(out, nproc)):
 
 # %%
 for i in range(nproc):
+    print(f"{i+1}/{nproc}")
     # f"cd d:\projects\case_{i}\ && matlab -nosplash -nodesktop -r GENERATE_CDB"
     os.system(rf"cd {root}\case_{i}\ && matlab -nosplash -nodesktop -r GENERATE_CDB")
     while not (os.path.isfile(root + rf"/case_{i}/cdb_creation_finished.csv")):
@@ -68,7 +69,7 @@ import post
 # %%
 case = "".join(params) + str(size)
 date = datetime.datetime.now().strftime("%y-%m-%d")
-data_repo = root + rf"/LPRES3000_{case}_{date}"
+data_repo = root + rf"/LPRES_3000_{case}_{date}"
 
 for i in range(nproc):
     case_dir = root + rf"\case_{i}"

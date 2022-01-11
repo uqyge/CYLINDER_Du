@@ -43,9 +43,9 @@ for i = 1:size(csv_in, 1)
     c_faxis
     model.num = i;
     model.t = csv_in(i, 1);
-    % model.L = csv_in(i, 1);
     model.R = csv_in(i, 2);
     model.presload = csv_in(i, 3);
+    model.L = csv_in(i, 4);
     model.FAXIS = c_faxis * pi * model.R^2 * model.presload;
     createcdb(model, path)
 end
