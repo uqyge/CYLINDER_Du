@@ -9,16 +9,16 @@ from chaospy.descriptives.expected import E
 from sklearn import linear_model as lm
 from sklearn.metrics import r2_score
 
-pio.renderers.default = "notebook_connected"
+# pio.renderers.default = "notebook_connected"
 #%%
-df = pd.read_hdf("./LPRES3000_tRpL32_22-01-04.h5")
+df = pd.read_hdf("./LPRES3000_tRp400_22-01-02.h5")
 
 # %%
 case_incr_max = [
     df["incr"][df["R"] == unique_R].idxmax() for unique_R in df["R"].unique()
 ]
 doe = df.iloc[case_incr_max]
-px.scatter_3d(doe, x="R", y="L", z="load")
+px.scatter_3d(doe, x="R", y="p", z="load")
 
 # %%
 for R in df["R"].unique():
@@ -223,4 +223,11 @@ doe['m']=doe.R**2*doe.p
 # %%
 px.scatter_3d(doe,x='R',y='m',z='load')
 
+# %%
+for R in df["R"].unique():
+    df_curve = df[df["R"] == R]
+    # print(R,df_case[df_case['R']==R].u.shape)
+    plt.plot(df_curve.u, df_curve.load)
+    # px.scatter(df_curve, x="u", y="load")
+plt.show()
 # %%
